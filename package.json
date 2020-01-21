@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "test:unit:watch": "vue-cli-service test:unit --watch",
+    "test:unit:debug": "node --inspect-brk ./node_modules/@vue/cli-service/bin/vue-cli-service.js test:unit --runInBand",
+    "lint": "vue-cli-service lint",
+    "lint-conf": "vue-cli-service lint --print-config",
+    "dev": "npm run serve",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run dev"
   },
   "dependencies": {
     "core-js": "^3.4.4",
@@ -37,37 +42,8 @@
     "typescript": "~3.5.3",
     "vue-template-compiler": "^2.6.10"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/prettier",
-      "@vue/typescript"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "@typescript-eslint/parser"
-    },
-    "overrides": [
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
-        ],
-        "env": {
-          "jest": true
-        }
-      }
-    ]
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
   "jest": {
-    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
+    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
+    "transformIgnorePatterns": "['/node_modules/']"
   }
 }
