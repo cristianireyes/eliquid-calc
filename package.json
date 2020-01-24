@@ -1,16 +1,33 @@
 {
   "name": "eliquid-calc",
   "version": "0.1.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "",
+  "bugs": "https://github.com/cristianireyes/eliquid-calc/issues",
+  "author": {
+    "name": "Cristian Reyes",
+    "email": "cristianir.dev@gmail.com",
+    "url": "https://cristianreyes.me"
+  },
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cristianireyes/eliquid-calc"
+  },
   "private": true,
   "scripts": {
+    "dev": "npm run serve",
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:unit:watch": "vue-cli-service test:unit --watch",
     "test:unit:debug": "node --inspect-brk ./node_modules/@vue/cli-service/bin/vue-cli-service.js test:unit --runInBand",
     "lint": "vue-cli-service lint",
-    "lint-conf": "vue-cli-service lint --print-config",
-    "dev": "npm run serve",
+    "lint:debug": "vue-cli-service lint --debug",
+    "lint:dry_run": "vue-cli-service lint --fix-dry-run",
+    "lint:report": "vue-cli-service lint -o ./test/report_eslint.html",
+    "lint:report:dry_run": "vue-cli-service lint -o ./test/report_eslint.html",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run dev"
   },
   "dependencies": {
@@ -45,5 +62,9 @@
   "jest": {
     "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
     "transformIgnorePatterns": "['/node_modules/']"
+  },
+  "engines": {
+    "node": "≥ 8.11.0",
+    "npm": "≥ 5.6.0"
   }
 }
